@@ -1,5 +1,5 @@
 # vincentadinolfi.com
-Full markup for my portfolio site.
+Full markup for <a href="vincentadinolfi.com">my portfolio site</a>.
 
 Written from scratch using HTML & CSS(including animations).
 
