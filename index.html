@@ -1,0 +1,665 @@
+<html>
+    <head>
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2" />
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,900' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="http://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
+    
+    <style>
+    
+        @media screen and (min-width:1820px) {
+            #container {
+                max-width: 1800px;
+            }
+            #top {
+                max-width: 1800px;
+            }
+        }
+    
+        @media screen and (max-width:1819px) and (min-width:1520px) {
+            #container {
+                max-width: 1500px;
+            }
+            #top {
+                max-width: 1500px;
+            }
+        }
+    
+        @media screen and (max-width:1519px) and (min-width:1220px) {
+            #container {
+                max-width: 1200px;
+            }
+            #top {
+                max-width: 1200px;
+            }
+        }
+    
+        @media screen and (max-width:1219px) and (min-width:920px) {
+            #container {
+                max-width: 900px;
+            }
+            #top {
+                max-width: 900px;
+            }
+        }
+    
+        @media screen and (max-width:919px) and (min-width:620px) {
+            #container {
+                max-width: 600px;
+            }
+            #top {
+                max-width: 600px;
+            }
+        }
+        
+        @media screen and (max-width:619px) {
+            #container {
+                max-width: 300px;
+            }
+            #top {
+                max-width: 300px;
+            }
+        }
+        
+        @media screen and (min-width:620px) {
+            #top-left {
+                float: left;
+                text-align: left;
+                width: auto;
+            }
+            
+            #top-right {
+                margin-top: 47px;
+                float: right;
+                text-align: right;
+                width: 187px;
+            }
+        }
+        
+        @media screen and (max-width:619px) {
+            #top-left {
+                text-align: left;
+                width: 100%;
+            }
+            
+            #top-right {
+                margin-top: 20px;
+                text-align: left;
+                width: 100%;
+            }
+        }
+        
+        
+        
+        *, *:before, *:after {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue','Helvetica', sans-serif;;
+            font-size: 13px;
+            background-color: #fff;
+            font-weight: 400;
+            padding: 0;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        #container {
+            padding: 0;
+            margin: 0 auto;
+        }
+        
+        .hr1 {
+            border-top: 3px solid rgba(0,0,0,1);
+            margin:10px auto;
+            padding:0px;
+            width: -webkit-calc(100% - 20px);
+            width: calc(100% - 20px);
+            border-bottom:none;
+            border-left:none;
+            border-right:none;
+        }
+        
+        #posts {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #top {
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:32px;
+            width: 100%;
+            clear: both;
+            position: relative;
+        }
+        
+        #top h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+        }
+        
+        #top a h1 {
+            color: #000;
+        }
+        
+        .clear {
+            clear: both;
+        }
+        
+        #footer {
+            text-align:center;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        
+        #tumblr_controls {
+            position: fixed !important;
+            top: 16px !important;
+            right: 16px !important;
+        }
+        
+        #hyphy {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9999;
+        }
+        
+        #hyphy img {
+            width:32px;
+        }
+        
+        .indexthumb {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #top a, #posts a {
+            border-bottom: 2px solid rgba(0,0,0,0);
+            -webkit-transition: 0.35s;
+        	transition: 0.35s;
+        }
+        
+        #top a:hover, #posts a:hover {
+            border-bottom: 2px solid rgba(0,0,0,1);
+        }
+        
+        #posts p a {
+            border-bottom: 1px solid rgba(0,0,0,1);
+            -webkit-transition: 0.35s;
+        	transition: 0.35s;
+        }
+        
+        #posts p a:hover {
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+        
+        /****** INDEX PAGE ******/
+        
+        {block:IndexPage}
+        
+        .buttontrick {
+            height:100%;
+            width:100%;
+            z-index: 1;
+        }
+        
+        .post {
+            float:left;
+            padding: 0;
+            width: 280px;
+            height:280px;
+            margin: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 1px #000;
+        }
+        
+        .post iframe {
+            width: 280px;
+            height: 280px;
+        }
+        
+        .postbutton {
+            width: 280px;
+            height: 280px;
+        }
+        
+        /****** Common Style ******/
+        
+        figure {
+        	position: relative;
+        	z-index: 1;
+        	display: inline-block;
+        	overflow: hidden;
+        	text-align: center;
+        	cursor: pointer;
+        }
+        
+        figure img {
+        	position: relative;
+        	display: block;
+        	height: -webkit-calc(100% + 50px);
+        	height: calc(100% + 50px);
+        	min-width:100%;
+        	opacity: 1;
+        }
+        
+        figure figcaption {
+        	padding: 2em;
+        	color: #222;
+        	text-transform: uppercase;
+        	font-weight: bold;
+        	font-size: 1.25em;
+        	-webkit-backface-visibility: hidden;
+        	backface-visibility: hidden;
+        }
+        
+        figure figcaption::before,
+        figure figcaption::after {
+        	pointer-events: none;
+        }
+        
+        figure figcaption,
+        figure a {
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	width: 100%;
+        	height: 100%;
+        }
+        
+        figure a {
+        	z-index: 1000;
+        	text-indent: 200%;
+        	white-space: nowrap;
+        	font-size: 0;
+        	opacity: 0;
+        }
+        
+        figure h2 {
+        	word-spacing: -0.15em;
+        	
+        	font-weight: 300;
+        }
+        
+        figure h2 span {
+        	font-weight: 800;
+        }
+        
+        figure h2,
+        figure p {
+        	margin: 0;
+        }
+        
+        figure p {
+        	letter-spacing: 1px;
+        	font-size: .9em;
+        }
+        
+        /***** Hover Effects *****/
+        
+        figure.hover-slide img {
+        	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        	transition: opacity 0.35s, transform 0.35s;
+        	-webkit-transform: scale(1.12);
+        	transform: scale(1.12);
+        }
+        
+        figure.hover-slide:hover img {
+        	opacity: 0.5;
+        	-webkit-transform: scale(1);
+        	transform: scale(1);
+        }
+        
+        figure.hover-slide figcaption {
+        	padding: 3em;
+        }
+        
+        figure.hover-slide figcaption::before {
+        	position: absolute;
+        	top: 30px;
+        	right: 30px;
+        	bottom: 30px;
+        	left: 30px;
+        	border: 0px solid #fff;
+        	content: '';
+        	-webkit-transform: scale(1.1);
+        	transform: scale(1.1);
+        }
+        
+        figure.hover-slide figcaption::before,
+        figure.hover-slide p {
+        	opacity: 0;
+        	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        	transition: opacity 0.35s, transform 0.35s;
+        }
+        
+        figure.hover-slide h2 {
+        	padding: 20% 0 20px 0;
+        }
+        
+        figure.hover-slide p {
+        	margin: 0 auto;
+        	position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        	max-width: 200px;
+        	-webkit-transform: scale(1.5);
+        	transform: scale(1.5);
+        }
+        
+        figure.hover-slide:hover figcaption::before,
+        figure.hover-slide:hover p {
+        	opacity: 1;
+        	-webkit-transform: scale(1);
+        	transform: scale(1);
+        }
+        
+        div.text {
+            opacity:1;
+            -webkit-transition: opacity 0.35s;
+        	transition: opacity 0.35s;
+        }
+        
+        div.text:hover {
+            opacity:.5;
+        }
+        
+        {/block:IndexPage}
+        
+        /****** PERMALINK PAGE ******/
+        
+        {block:PermalinkPage}
+        .post {
+            margin: 0 auto;
+            padding: 10px;
+            max-width:900px;
+            width: 100%;
+            height: auto;
+        }
+        
+        .post img {
+            max-width: 880px;
+            width: 100%;
+        }
+        
+        .post iframe {
+            width: 100%;
+            height: 600px;
+        }
+        
+        .caption {
+            display: inline;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .video {
+            height: 600px;
+        }
+        
+        .resume {
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+        }
+        {/block:PermalinkPage}
+        
+        /****** Thumbnails for web stuff ******/
+        
+        .movesmart {
+            background-image: url('http://static.tumblr.com/v3eowuk/bTqn7nb3o/movesmart_thumb.png');
+            background-size: cover;
+        }
+        
+        .transmute {
+            background-image: url('http://static.tumblr.com/v3eowuk/dmMn8fugk/transmute_thumb.png');
+            background-size: cover;
+        }
+        
+        .ggsilk {
+            background-image: url('http://static.tumblr.com/v3eowuk/MY9n8ft7w/gg_thumb.png');
+            background-size: cover;
+        }
+        
+        .custsolu {
+            background-image: url('http://static.tumblr.com/v3eowuk/uOQn8fx1s/custsolu_thumb.png');
+            background-size: cover;
+        }
+        
+        .ccc {
+            background-image: url('http://static.tumblr.com/v3eowuk/90Bn8fx3c/ccc_thumb.png');
+            background-size: cover;
+        }
+        
+        .grassyhi {
+            background-image: url('http://static.tumblr.com/v3eowuk/zdtn8fx3q/grassyhi_thumb.png');
+            background-size: cover;
+        }
+        
+        .apicella {
+            background-image: url('https://dl.dropboxusercontent.com/u/27789438/apicella_thumb.png');
+            background-size: cover;
+        }
+        
+        .ihnmaims {
+            background-image: url('https://dl.dropboxusercontent.com/u/27789438/ihnm_thumb.png');
+            background-size: cover;
+        }
+        
+        .transmute2 {
+            background-image: url('https://dl.dropboxusercontent.com/u/27789438/transmutethumb2.PNG');
+            background-size: cover;
+        }
+        
+    </style>
+    
+    </head>
+    <body>
+   
+    <div id="hyphy">
+    <a href="http://www.vincentadinolfi.com">
+    <img src="http://static.tumblr.com/v3eowuk/ewFm47ey3/logo.png" />
+    </a>
+    </div>
+    
+    <div id="top">
+        <div id="top-left">
+        <div><a href="/"><h1>VINCENT ADINOLFI</h1></a></div>
+
+        {block:Description}
+            <div id="description">{Description}</div>
+        {/block:Description}
+            <p></p>
+            <div>
+            <a href="/">All</a> | 
+            <a href="/tagged/photography">Photo</a> | 
+            <a href="/tagged/web">Web / Design</a> |
+            <a href="/tagged/video">Video</a> | 
+            <a href="/tagged/music">Music</a> | 
+            <a href="http://knulpmusic.tumblr.com">Knulp</a> | 
+            <a href="/archive">Archive</a>
+            </div>
+        </div>
+        <div id="top-right">
+                203.506.6387<br/>
+                <a href="mailto:vincentadinolfi@gmail.com">vincentadinolfi@gmail.com</a><br/>
+                <a href="http://vincentadinolfi.com/post/104226479183/resume-2015">Resume / CV</a> | <a href="http://thiswilldstryyou.tumblr.com">Blog</a> | <a href="https://www.linkedin.com/pub/vincent-adinolfi/56/111/a5">LinkedIn</a>
+                
+        </div>
+    </div>
+<br style="width: 100%;clear:both;" class="hr1">
+
+    <div id="container">
+    <hr class="hr1">
+        <div id="posts">
+            {block:Posts}
+                {block:Text}
+                    {block:IndexPage}
+                    <div class="post text {TagsAsClasses}">
+                    <a href="{Permalink}"><span style="display:block;width:280px;height:280px;"></span></a>
+                    </div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    <div class="post text">
+                        {block:Title}
+                            <h1><a href="{Permalink}">{Title}</a></h1>
+                        {/block:Title}
+
+                        {Body}
+                    </div>
+                    {/block:PermalinkPage}
+                    
+                {/block:Text}
+
+                {block:Photo}
+                
+                {block:IndexPage}
+                
+                <figure class="hover-slide post photo {TagsAsClasses} indexthumb">
+					<img src="{PhotoURL-500}" alt="{PhotoURL-500}"/>
+					<figcaption>
+						<p>{Caption}</p>
+						<a href="{Permalink}">View more</a>
+					</figcaption>			
+				</figure>
+				
+				<!--
+                    <div class="post photo {TagsAsClasses} indexthumb" style="background-image: url('{PhotoURL-500}');">
+                    <a href="{Permalink}"><div class="postbutton">
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        </div></a>
+                    </div>
+                -->
+                    {/block:IndexPage}
+                    
+                    {block:PermalinkPage}
+                    <div class="post photo {TagsAsClasses}">
+                    {LinkOpenTag}<img src="{PhotoURL-HighRes}"/>{LinkCloseTag}
+                    <a href="{Permalink}">
+                    <div class="postbutton">
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    </a>
+                    </div>
+                    {/block:PermalinkPage}
+                    
+                {/block:Photo}
+                
+                {block:Photoset}
+                    <div class="post photoset">
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Photoset}
+
+                {block:Quote}
+                    <div class="post quote">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </div>
+                {/block:Quote}
+
+                {block:Link}
+                    <div class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                {/block:Link}
+                
+                {block:Chat}
+                    <div class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                {/block:Chat}
+                
+                {block:Video}
+                {block:IndexPage}
+                    <div class="post video {TagsAsClasses}">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:IndexPage}
+                {block:PermalinkPage}
+                    <div class="post video {TagsAsClasses}">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:PermalinkPage}
+                {/block:Video}
+
+                {block:Audio}
+                    <div class="post audio {TagsAsClasses}">
+                        {AudioPlayerBlack}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Audio}
+            {/block:Posts}
+        </div>
+        </div>
+
+        <div id="footer" class="clear">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a> //
+            {/block:PreviousPage}
+            {block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+        </div>
+        
+
+        
+    </body>
+</html>
